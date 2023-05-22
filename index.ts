@@ -4,4 +4,4 @@ import string from './strings'
 
 // console.log(reversed, 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
 
-string.findPermutations('abc')
+console.log(string.checkRotation('abcd', 'cdab'))

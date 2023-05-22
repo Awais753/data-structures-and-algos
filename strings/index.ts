@@ -85,8 +85,20 @@ const reverseWords = (sentence: string) => sentence.split(/\\s/).reverse().join(
 
 // 11. Check if two String is a rotation of each other?
 
-const checkRotation = (str1: string, str2: string) =>
-  str1.split('').sort().join('') === str2.split('').sort().join('')
+const checkRotation = (str1: string, str2: string) => {
+  if (str1.length !== str2.length) return false
+  const length = str1.length
+  const checkRotationRecursive = (startIndex = 0): boolean => {
+    if (startIndex >= length) return false
+    const rotatedString = str1.substring(startIndex) + str1.substring(0, startIndex)
+    if (rotatedString !== str2) {
+      return checkRotationRecursive(startIndex + 1)
+    } else {
+      return true
+    }
+  }
+  return checkRotationRecursive()
+}
 
 // 12. Check if the given String is Palindrome?
 const checkPalindrome = (str: string) => {
